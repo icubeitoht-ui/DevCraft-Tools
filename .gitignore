@@ -1,0 +1,15 @@
+# Agent configuration (private)
+.agents/
+
+# macOS
+.DS_Store
+.Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Gemini
+.gemini/

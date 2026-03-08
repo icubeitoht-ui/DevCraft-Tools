@@ -1,0 +1,18 @@
+{
+  "name": "DevCraft Tools — 美しすぎる開発者ツール集",
+  "short_name": "DevCraft Tools",
+  "description": "JSON整形、CSSグラデーション生成、正規表現テスト、カラーパレット、Base64変換を無料で提供する開発者ツール集。すべてブラウザ完結。",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0a1a",
+  "theme_color": "#6c63ff",
+  "orientation": "any",
+  "categories": ["developer tools", "utilities", "productivity"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DevCraft Tools — 美しすぎる開発者ツール集。JSON整形、CSSグラデーション生成、正規表現テスト、カラーパレット、Base64変換を無料で。すべてブラウザ完結。">
+  <meta name="keywords" content="developer tools, JSON formatter, CSS gradient generator, regex tester, color palette, base64 encoder decoder, web development, 開発者ツール, JSON整形, 正規表現テスト">
+  <meta name="author" content="DevCraft Tools">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#6c63ff">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DevCraft Tools — 美しすぎる開発者ツール集">
+  <meta property="og:description" content="JSON整形、CSSグラデーション生成、正規表現テスト、カラーパレット、Base64変換を無料で。すべてブラウザ完結、データはサーバーに送信されません。">
+  <meta property="og:image" content="og-image.png">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DevCraft Tools — 美しすぎる開発者ツール集">
+  <meta name="twitter:description" content="JSON整形、CSSグラデーション生成、正規表現テスト、カラーパレットなど開発者ツールを無料提供。ブラウザ完結でデータ安全。">
+  <meta name="twitter:image" content="og-image.png">
+
+  <title>DevCraft Tools — 美しすぎる開発者ツール集</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DevCraft Tools",
+    "description": "美しすぎる開発者ツール集。JSON整形、CSSグラデーション生成、正規表現テスト、カラーパレット、Base64変換を無料で提供。",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "featureList": [
+      "JSON Formatter & Validator",
+      "CSS Gradient Generator",
+      "Regex Tester",
+      "Color Palette Generator",
+      "Base64 Encoder/Decoder"
+    ],
+    "browserRequirements": "Requires JavaScript",
+    "softwareVersion": "1.0.0",
+    "inLanguage": "ja"
+  }
+  </script>
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-content">
+      <a href="#" class="nav-logo" id="nav-home">
+        <div class="nav-logo-icon">⚡</div>
+        DevCraft Tools
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニュー">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" data-tool="home" class="active">Home</a></li>
+        <li><a href="#" data-tool="json">JSON</a></li>
+        <li><a href="#" data-tool="gradient">Gradient</a></li>
+        <li><a href="#" data-tool="regex">Regex</a></li>
+        <li><a href="#" data-tool="color">Color</a></li>
+        <li><a href="#" data-tool="base64">Base64</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Home Page -->
+  <main id="page-home">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          無料 & オープンソース
+        </div>
+        <h1>
+          開発を、もっと<br>
+          <span class="gradient-text">美しく、速く。</span>
+        </h1>
+        <p>
+          DevCraft Toolsは開発者のための無料ツール集。
+          すべてブラウザ上で完結。データはサーバーに送信されません。
+        </p>
+        <div class="hero-cta">
+          <a href="#" class="btn btn-primary" data-tool="json" id="cta-start">
+            🚀 ツールを使ってみる
+          </a>
+          <a href="#tools" class="btn btn-secondary" id="cta-tools">
+            ✨ ツール一覧を見る
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools Grid -->
+    <section class="tools-section" id="tools">
+      <div class="section-header">
+        <h2>🛠️ ツール一覧</h2>
+        <p>すべて無料。すべてブラウザ完結。あなたのデータは安全です。</p>
+      </div>
+      <div class="tools-grid">
+        <a href="#" class="tool-card" data-tool="json" id="card-json">
+          <div class="tool-card-icon json">{ }</div>
+          <span class="tool-card-arrow">→</span>
+          <h3>JSON Formatter</h3>
+          <p>JSONの整形・検証・ミニファイ。シンタックスハイライト付き。</p>
+        </a>
+        <a href="#" class="tool-card" data-tool="gradient" id="card-gradient">
+          <div class="tool-card-icon gradient">◐</div>
+          <span class="tool-card-arrow">→</span>
+          <h3>CSS Gradient Generator</h3>
+          <p>ビジュアルにCSSグラデーションを作成。リアルタイムプレビュー。</p>
+        </a>
+        <a href="#" class="tool-card" data-tool="regex" id="card-regex">
+          <div class="tool-card-icon regex">.*</div>
+          <span class="tool-card-arrow">→</span>
+          <h3>Regex Tester</h3>
+          <p>正規表現のリアルタイムテスト。マッチのハイライト表示。</p>
+        </a>
+        <a href="#" class="tool-card" data-tool="color" id="card-color">
+          <div class="tool-card-icon color">🎨</div>
+          <span class="tool-card-arrow">→</span>
+          <h3>Color Palette</h3>
+          <p>カラーパレット生成・HEX/RGB/HSL変換。ワンクリックコピー。</p>
+        </a>
+        <a href="#" class="tool-card" data-tool="base64" id="card-base64">
+          <div class="tool-card-icon base64">🔄</div>
+          <span class="tool-card-arrow">→</span>
+          <h3>Base64 Converter</h3>
+          <p>テキスト・画像のBase64エンコード/デコード。即座に変換。</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2026 DevCraft Tools. すべてのデータはブラウザ内で処理されます。🔒</p>
+    </footer>
+  </main>
+
+  <!-- JSON Formatter Page -->
+  <div class="tool-page" id="page-json">
+    <div class="tool-header">
+      <h1>{ } JSON Formatter</h1>
+      <p>JSONの整形・検証・ミニファイ</p>
+    </div>
+    <div class="tool-container">
+      <div class="controls-bar">
+        <button class="btn btn-primary" id="json-format" onclick="jsonFormat()">✨ 整形</button>
+        <button class="btn btn-secondary" id="json-minify" onclick="jsonMinify()">📦 ミニファイ</button>
+        <button class="btn btn-secondary" id="json-validate" onclick="jsonValidate()">✅ 検証</button>
+        <button class="btn-copy" id="json-copy" onclick="copyOutput('json-output')">📋 コピー</button>
+        <button class="btn btn-secondary" id="json-clear" onclick="jsonClear()">🗑️ クリア</button>
+      </div>
+      <div class="split-layout">
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3>入力</h3>
+          </div>
+          <textarea class="code-editor" id="json-input" placeholder='{"name": "DevCraft", "version": 1, "features": ["json", "gradient", "regex"]}'></textarea>
+        </div>
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3>出力</h3>
+          </div>
+          <textarea class="code-editor" id="json-output" readonly placeholder="整形結果がここに表示されます..."></textarea>
+          <div class="status-bar" id="json-status"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gradient Generator Page -->
+  <div class="tool-page" id="page-gradient">
+    <div class="tool-header">
+      <h1>◐ CSS Gradient Generator</h1>
+      <p>ビジュアルにCSSグラデーションを作成</p>
+    </div>
+    <div class="tool-container">
+      <div class="controls-bar">
+        <div class="control-group">
+          <label>タイプ</label>
+          <select class="control-input" id="gradient-type" onchange="updateGradient()">
+            <option value="linear">Linear</option>
+            <option value="radial">Radial</option>
+            <option value="conic">Conic</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>角度</label>
+          <input type="range" class="control-input" id="gradient-angle" min="0" max="360" value="135" oninput="updateGradient()" style="width: 120px;">
+          <span id="gradient-angle-display" style="color: var(--text-secondary); font-size: 0.85rem;">135°</span>
+        </div>
+        <div class="control-group">
+          <label>色1</label>
+          <input type="color" class="color-swatch" id="gradient-color1" value="#6c63ff" oninput="updateGradient()">
+        </div>
+        <div class="control-group">
+          <label>色2</label>
+          <input type="color" class="color-swatch" id="gradient-color2" value="#00d4aa" oninput="updateGradient()">
+        </div>
+        <button class="btn btn-secondary" id="gradient-random" onclick="randomGradient()">🎲 ランダム</button>
+        <button class="btn-copy" id="gradient-copy" onclick="copyGradientCSS()">📋 CSSをコピー</button>
+      </div>
+      <div class="gradient-preview" id="gradient-preview"></div>
+      <div class="glass-panel">
+        <div class="panel-header">
+          <h3>CSS コード</h3>
+        </div>
+        <textarea class="code-editor" id="gradient-output" readonly style="min-height: 80px;"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Regex Tester Page -->
+  <div class="tool-page" id="page-regex">
+    <div class="tool-header">
+      <h1>.* Regex Tester</h1>
+      <p>正規表現のリアルタイムテスト</p>
+    </div>
+    <div class="tool-container">
+      <div class="controls-bar">
+        <div class="control-group">
+          <label>パターン</label>
+          <input type="text" class="control-input" id="regex-pattern" placeholder="[A-Za-z]+" oninput="testRegex()" style="flex: 1; min-width: 200px;">
+        </div>
+        <div class="control-group">
+          <label>フラグ</label>
+          <input type="text" class="control-input" id="regex-flags" value="gi" oninput="testRegex()" style="width: 60px;">
+        </div>
+      </div>
+      <div class="split-layout">
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3>テスト文字列</h3>
+          </div>
+          <textarea class="code-editor" id="regex-input" placeholder="ここにテスト文字列を入力..." oninput="testRegex()">Hello World 123 こんにちは DevCraft Tools 2026</textarea>
+        </div>
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3>マッチ結果</h3>
+          </div>
+          <div class="code-editor" id="regex-output" style="min-height: 300px; white-space: pre-wrap;"></div>
+          <div class="match-info" id="regex-match-info">
+            <span class="match-count">マッチ: <strong>0</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Color Palette Page -->
+  <div class="tool-page" id="page-color">
+    <div class="tool-header">
+      <h1>🎨 Color Palette Generator</h1>
+      <p>カラーパレット生成 & HEX / RGB / HSL 変換</p>
+    </div>
+    <div class="tool-container">
+      <div class="controls-bar">
+        <div class="control-group">
+          <label>基準色</label>
+          <input type="color" class="color-swatch" id="color-base" value="#6c63ff" oninput="generatePalette()">
+        </div>
+        <div class="control-group">
+          <label>モード</label>
+          <select class="control-input" id="color-mode" onchange="generatePalette()">
+            <option value="analogous">類似色</option>
+            <option value="complementary">補色</option>
+            <option value="triadic">トライアド</option>
+            <option value="shades">シェード</option>
+            <option value="random">ランダム</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" id="color-generate" onclick="generatePalette()">🎲 生成</button>
+      </div>
+
+      <!-- Color Converter -->
+      <div class="glass-panel" style="margin-bottom: var(--space-lg);">
+        <div class="panel-header">
+          <h3>カラー変換</h3>
+        </div>
+        <div style="padding: var(--space-lg); display: flex; gap: var(--space-md); flex-wrap: wrap; align-items: center;">
+          <div class="control-group">
+            <label>HEX</label>
+            <input type="text" class="control-input" id="color-hex" value="#6c63ff" oninput="colorFromHex()" style="width: 100px;">
+          </div>
+          <div class="control-group">
+            <label>R</label>
+            <input type="number" class="control-input" id="color-r" value="108" min="0" max="255" oninput="colorFromRGB()" style="width: 60px;">
+          </div>
+          <div class="control-group">
+            <label>G</label>
+            <input type="number" class="control-input" id="color-g" value="99" min="0" max="255" oninput="colorFromRGB()" style="width: 60px;">
+          </div>
+          <div class="control-group">
+            <label>B</label>
+            <input type="number" class="control-input" id="color-b" value="255" min="0" max="255" oninput="colorFromRGB()" style="width: 60px;">
+          </div>
+          <div class="control-group">
+            <label>HSL</label>
+            <span class="control-input" id="color-hsl-display" style="min-width: 150px;">hsl(243, 100%, 69%)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Palette Display -->
+      <div class="palette-grid" id="palette-grid"></div>
+    </div>
+  </div>
+
+  <!-- Base64 Converter Page -->
+  <div class="tool-page" id="page-base64">
+    <div class="tool-header">
+      <h1>🔄 Base64 Converter</h1>
+      <p>テキストのBase64エンコード / デコード</p>
+    </div>
+    <div class="tool-container">
+      <div class="controls-bar">
+        <button class="btn btn-primary" id="base64-encode" onclick="base64Encode()">🔒 エンコード</button>
+        <button class="btn btn-secondary" id="base64-decode" onclick="base64Decode()">🔓 デコード</button>
+        <button class="btn-copy" id="base64-copy" onclick="copyOutput('base64-output')">📋 コピー</button>
+        <button class="btn btn-secondary" id="base64-clear" onclick="base64Clear()">🗑️ クリア</button>
+      </div>
+      <div class="split-layout">
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3>入力</h3>
+          </div>
+          <textarea class="code-editor" id="base64-input" placeholder="テキストを入力してください..."></textarea>
+        </div>
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3>出力</h3>
+          </div>
+          <textarea class="code-editor" id="base64-output" readonly placeholder="結果がここに表示されます..."></textarea>
+          <div class="status-bar" id="base64-status"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="tools/json-formatter.js"></script>
+  <script src="tools/gradient-generator.js"></script>
+  <script src="tools/regex-tester.js"></script>
+  <script src="tools/color-palette.js"></script>
+  <script src="tools/base64-converter.js"></script>
+</body>
+</html>
