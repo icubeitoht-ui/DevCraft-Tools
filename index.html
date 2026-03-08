@@ -47,7 +47,10 @@
       "CSS Gradient Generator",
       "Regex Tester",
       "Color Palette Generator",
-      "Base64 Encoder/Decoder"
+      "Base64 Encoder/Decoder",
+      "Markdown Preview",
+      "Diff Checker",
+      "Lorem Ipsum Generator"
     ],
     "browserRequirements": "Requires JavaScript",
     "softwareVersion": "1.0.0",
@@ -73,6 +76,9 @@
         <li><a href="#" data-tool="regex">Regex</a></li>
         <li><a href="#" data-tool="color">Color</a></li>
         <li><a href="#" data-tool="base64">Base64</a></li>
+        <li><a href="#" data-tool="markdown">Markdown</a></li>
+        <li><a href="#" data-tool="diff">Diff</a></li>
+        <li><a href="#" data-tool="lorem">Lorem</a></li>
       </ul>
     </div>
   </nav>
@@ -145,12 +151,30 @@
           <h3>Base64 Converter</h3>
           <p>テキスト・画像のBase64エンコード/デコード。即座に変換。</p>
         </a>
+        <a href="#" class="tool-card" data-tool="markdown" id="card-markdown">
+          <div class="tool-card-icon markdown">📝</div>
+          <span class="tool-card-arrow">→</span>
+          <h3>Markdown Preview</h3>
+          <p>Markdownのリアルタイムプレビュー。HTMLエクスポート対応。</p>
+        </a>
+        <a href="#" class="tool-card" data-tool="diff" id="card-diff">
+          <div class="tool-card-icon diff">⇄</div>
+          <span class="tool-card-arrow">→</span>
+          <h3>Diff Checker</h3>
+          <p>2つのテキストを比較。追加・削除をハイライト表示。</p>
+        </a>
+        <a href="#" class="tool-card" data-tool="lorem" id="card-lorem">
+          <div class="tool-card-icon lorem">📄</div>
+          <span class="tool-card-arrow">→</span>
+          <h3>Lorem Ipsum Generator</h3>
+          <p>ダミーテキスト生成。日本語にも対応。段落数・文数を指定。</p>
+        </a>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-      <p>© 2026 DevCraft Tools. すべてのデータはブラウザ内で処理されます。🔒</p>
+      <p>© 2026 DevCraft Tools. ユーザーが入力したデータはサーバーに送信されません。🔒</p>
     </footer>
   </main>
 
@@ -355,11 +379,129 @@
     </div>
   </div>
 
+  <!-- Markdown Preview Page -->
+  <div class="tool-page" id="page-markdown">
+    <div class="tool-header">
+      <h1>📝 Markdown Preview</h1>
+      <p>Markdownのリアルタイムプレビュー</p>
+    </div>
+    <div class="tool-container">
+      <div class="controls-bar">
+        <button class="btn-copy" id="markdown-copy-html" onclick="copyMarkdownHtml()">📋 HTMLをコピー</button>
+        <button class="btn btn-secondary" id="markdown-clear" onclick="clearMarkdown()">🗑️ クリア</button>
+      </div>
+      <div class="split-layout">
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3>Markdown入力</h3>
+          </div>
+          <textarea class="code-editor" id="markdown-input" placeholder="# 見出し
+
+**太字** と *斜体*
+
+- リスト項目" oninput="renderMarkdown()"></textarea>
+        </div>
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3>プレビュー</h3>
+          </div>
+          <div class="markdown-preview-area" id="markdown-output">
+            <p style="color: var(--text-muted);">プレビューがここに表示されます...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Diff Checker Page -->
+  <div class="tool-page" id="page-diff">
+    <div class="tool-header">
+      <h1>⇄ Diff Checker</h1>
+      <p>2つのテキストを比較・差分表示</p>
+    </div>
+    <div class="tool-container">
+      <div class="controls-bar">
+        <button class="btn btn-primary" id="diff-run" onclick="runDiff()">🔍 比較する</button>
+        <button class="btn btn-secondary" id="diff-swap" onclick="swapDiffInputs()">⇄ 入れ替え</button>
+        <button class="btn btn-secondary" id="diff-clear" onclick="clearDiff()">🗑️ クリア</button>
+        <div class="diff-stats-bar" id="diff-stats"></div>
+      </div>
+      <div class="split-layout">
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3>元テキスト</h3>
+          </div>
+          <textarea class="code-editor" id="diff-input1" placeholder="元のテキストを入力..."></textarea>
+        </div>
+        <div class="glass-panel">
+          <div class="panel-header">
+            <h3>新テキスト</h3>
+          </div>
+          <textarea class="code-editor" id="diff-input2" placeholder="新しいテキストを入力..."></textarea>
+        </div>
+      </div>
+      <div class="glass-panel" style="margin-top: var(--space-lg);">
+        <div class="panel-header">
+          <h3>差分結果</h3>
+        </div>
+        <div class="diff-output" id="diff-output">
+          <p style="color: var(--text-muted);">差分結果がここに表示されます...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lorem Ipsum Generator Page -->
+  <div class="tool-page" id="page-lorem">
+    <div class="tool-header">
+      <h1>📄 Lorem Ipsum Generator</h1>
+      <p>ダミーテキスト生成 — 日本語対応</p>
+    </div>
+    <div class="tool-container">
+      <div class="controls-bar">
+        <div class="control-group">
+          <label>言語</label>
+          <select class="control-input" id="lorem-language" onchange="generateLorem()">
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>段落数</label>
+          <input type="number" class="control-input" id="lorem-paragraphs" value="3" min="1" max="20" style="width: 60px;">
+        </div>
+        <div class="control-group">
+          <label>文/段落</label>
+          <input type="number" class="control-input" id="lorem-sentences" value="5" min="1" max="15" style="width: 60px;">
+        </div>
+        <div class="control-group">
+          <label style="display: flex; align-items: center; gap: 6px;">
+            <input type="checkbox" id="lorem-start-classic" checked>
+            Lorem ipsumで開始
+          </label>
+        </div>
+        <button class="btn btn-primary" id="lorem-generate" onclick="generateLorem()">🎲 生成</button>
+        <button class="btn-copy" id="lorem-copy" onclick="copyLoremOutput()">📋 コピー</button>
+        <button class="btn btn-secondary" id="lorem-clear" onclick="clearLorem()">🗑️ クリア</button>
+      </div>
+      <div class="glass-panel">
+        <div class="panel-header">
+          <h3>生成結果</h3>
+          <div class="lorem-stats" id="lorem-stats"></div>
+        </div>
+        <textarea class="code-editor" id="lorem-output" readonly placeholder="「生成」をクリックしてダミーテキストを作成..." style="min-height: 300px;"></textarea>
+      </div>
+    </div>
+  </div>
+
   <script src="app.js"></script>
   <script src="tools/json-formatter.js"></script>
   <script src="tools/gradient-generator.js"></script>
   <script src="tools/regex-tester.js"></script>
   <script src="tools/color-palette.js"></script>
   <script src="tools/base64-converter.js"></script>
+  <script src="tools/markdown-preview.js"></script>
+  <script src="tools/diff-checker.js"></script>
+  <script src="tools/lorem-generator.js"></script>
 </body>
 </html>

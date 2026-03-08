@@ -4,7 +4,7 @@
    ============================================ */
 
 // ---- Page Routing ----
-const pages = ['home', 'json', 'gradient', 'regex', 'color', 'base64'];
+const pages = ['home', 'json', 'gradient', 'regex', 'color', 'base64', 'markdown', 'diff', 'lorem'];
 let currentPage = 'home';
 
 function navigateTo(page) {
@@ -53,6 +53,12 @@ function initTool(tool) {
       break;
     case 'regex':
       testRegex();
+      break;
+    case 'markdown':
+      initMarkdown();
+      break;
+    case 'lorem':
+      generateLorem();
       break;
   }
 }
